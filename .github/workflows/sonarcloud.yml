@@ -239,14 +239,14 @@ on:
 
 jobs:
 
-  deploy-testing:
-    name: Deploy to testing
-    environment:
-      name: Testing
-    if: github.event.ref == 'refs/heads/test'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo Deploy to testing using ${{ secrets.mysecret-stag }}
+  # deploy-testing:
+  #   name: Deploy to testing
+  #   environment:
+  #     name: Testing
+  #   if: github.event.ref == 'refs/heads/test'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo Deploy to testing using ${{ secrets.mysecret-stag }}
         
   deploy-staging:
     name: Deploy to staging
