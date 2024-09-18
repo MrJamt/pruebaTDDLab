@@ -252,7 +252,7 @@ jobs:
     name: Deploy to staging
     environment:
       name: Staging
-    if: github.event.ref == 'refs/heads/main'
+    #if: github.event.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - run: echo Deploy to staging using ${{ secrets.mysecret-stag }}
