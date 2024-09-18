@@ -239,23 +239,23 @@ on:
 
 jobs:
 
-  # deploy-testing:
-  #   name: Deploy to testing
-  #   environment:
-  #     name: Testing
-  #   if: github.event.ref == 'refs/heads/test'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo Deploy to testing using ${{ secrets.mysecret-stag }}
+  deploy-testing:
+    name: Deploy to testing
+    environment:
+      name: Testing
+    if: github.event.ref == 'refs/heads/test'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Deploy to testing using ${{ secrets.mysecret }}
         
   deploy-staging:
     name: Deploy to staging
     environment:
       name: Staging
-    #if: github.event.ref == 'refs/heads/main'
+    if: github.event.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - run: echo Deploy to staging using ${{ secrets.mysecret-stag }}
+      - run: echo Deploy to staging using ${{ secrets.mysecret }}
         
   deploy-production:
     name: Deploy to production
@@ -264,4 +264,4 @@ jobs:
     needs: [deploy-staging]
     runs-on: ubuntu-latest
     steps:
-      - run: echo Deploy to production using ${{ secrets.mysecret-prod }}
+      - run: echo Deploy to production using ${{ secrets.mysecret }}
