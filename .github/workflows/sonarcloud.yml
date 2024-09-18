@@ -231,7 +231,7 @@
 #           projectId: tddlab-hosting-firebase
 
 # Nuevo bloque de despliegue para staging y producción
-name: Deploy2
+name:  Deploy
 
 on:
   push:
@@ -239,14 +239,24 @@ on:
 
 jobs:
 
+  deploy-testing:
+    name: Deploy to testing
+    environment:
+      name: Testing
+    if: github.event.ref == 'refs/heads/test'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Deploy to testing using ${{ secrets.mysecret-stag }}
+        
   deploy-staging:
     name: Deploy to staging
     environment:
       name: Staging
+    if: github.event.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - run: echo Deploy to staging using ${{ secrets.mysecret-stag }}
-
+        
   deploy-production:
     name: Deploy to production
     environment:
