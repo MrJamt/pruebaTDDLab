@@ -231,7 +231,7 @@
 #           projectId: tddlab-hosting-firebase
 
 # Nuevo bloque de despliegue para staging y producción
-name: Deploy
+name: Deploy2
 
 on:
   push:
